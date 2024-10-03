@@ -1,12 +1,9 @@
 import React from 'react'
-import { Header } from '@/app/ui/web/sections'
-
 
 const Home = () => {
   return (
-    <div>
-      esta e sla pagina de home el conteendor
-      aqui va el resto de la pagina el header va en el layout
+    <div className='mt-16'>
+      <h1>Resto de la pagina container de Home</h1>
     </div>
   )
 }
