@@ -1,11 +1,17 @@
 import React from 'react'
 import { InputText } from 'primereact/inputtext'
 
-function SearchInput({roundedLeft}: {roundedLeft?: boolean}) {
+interface SearchInputProps {
+  roundedLeft?: boolean;
+  width?: string
+}
+
+
+function SearchInput({roundedLeft, width}:SearchInputProps ) {
   return (
     <InputText pt={{
         root: {
-            className: `rounded-r-none w-96 ${!roundedLeft && "rounded-l-none"}`
+            className: `rounded-r-none ${width}  ${!roundedLeft && "rounded-l-none"}`
         }
     }}/>
   )

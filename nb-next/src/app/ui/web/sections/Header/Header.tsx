@@ -10,7 +10,7 @@ const Header = () => {
           <SearchBarSelector/>
         </div>
         <div>
-          <BtnRedirect label="Ingresar" icon="pi pi-sign-in" size={"small"} iconPos={"right"} />
+          <BtnRedirect label="Ingresar" icon="pi pi-sign-in" size="small" iconPos="right" href="/home"  />
         </div>
     </div>
   )

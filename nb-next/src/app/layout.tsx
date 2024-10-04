@@ -1,21 +1,17 @@
 import Providers from "./providers/Providers";
 import "primeicons/primeicons.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
+import {Inter} from 'next/font/google'
 import "./globals.css";
 
 
+const OpenSans = Inter({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
        <Providers>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${OpenSans.className} antialiased`}
       >
        {children}
       </body>

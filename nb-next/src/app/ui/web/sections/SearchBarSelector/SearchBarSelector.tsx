@@ -27,7 +27,7 @@ function SearchBarSelector() {
             root: { className: `border-r-0 rounded-r-none`, tabIndex: -1 },
           }}
         />
-        <SearchInput roundedLeft={false} />
+        <SearchInput roundedLeft={false} width="md:w-60 lg:w-96" />
         <SearchBtn />
       </form>
     </div>

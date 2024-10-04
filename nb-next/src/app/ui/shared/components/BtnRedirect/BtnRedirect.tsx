@@ -1,14 +1,20 @@
-import React from 'react'
-import { Button } from 'primereact/button'
-import { ButtonProps } from 'primereact/button'
+import React from "react";
+import { Button } from "primereact/button";
+import { ButtonProps } from "primereact/button";
+import Link from "next/link";
 
 
-
-
-function BtnRedirect({label, icon, size, iconPos}: ButtonProps ) {
-  return (
-    <Button label={label} size={size} icon={icon} iconPos={iconPos}/>
-  )
+interface BtnRedirectProps extends ButtonProps {
+  href: string;
 }
 
-export default BtnRedirect
+function BtnRedirect({ label, icon, size, iconPos, href, severity, outlined }: BtnRedirectProps) {
+  return<Link href={href}>
+     <Button pt={{
+        label: { className: "font-normal" },
+     }}  label={label} size={size} icon={icon} iconPos={iconPos} severity={severity} outlined={outlined} />
+  </Link>
+ 
+}
+
+export default BtnRedirect;
