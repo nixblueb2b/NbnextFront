@@ -15,12 +15,6 @@ const TRANSITIONS = {
       exitActive: "!opacity-0 transition-opacity duration-150 ease-linear",
     },
   },
-  // overlay: {
-  //       enterFromClass: 'opacity-0 scale-75',
-  //       enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
-  //       leaveActiveClass: 'transition-opacity duration-150 ease-linear',
-  //       leaveToClass: 'opacity-0'
-  //   }
 };
 
 
@@ -36,17 +30,17 @@ const DesignSystem = {
     }) => ({
       className: classNames(
         "m-0",
-        "text-gray-800 bg-white dark:bg-gray-900 border border-gray-300 transition-colors duration-200 appearance-none rounded-lg",
+        "text-gray-800 bg-white border border-gray-300 transition-colors duration-200 appearance-none rounded-lg",
         {
-          "hover:border-primary-blue focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]":
+          "hover:border-primary-blue focus:outline-none focus:outline-offset-0 focus:shadow-primary":
             !context.disabled,
           "opacity-60 select-none pointer-events-none cursor-default":
             context.disabled,
         },
         {
-          "text-lg px-4 py-4": props.size == "large",
-          "text-xs px-2 py-2": props.size == "small",
-          "p-3 text-base": props.size == null,
+          "text-sm px-4 py-4": props.size == "large",
+          "text-sm px-2 py-2": props.size == "small",
+          "p-3 text-sm": props.size == null,
         }
       ),
     }),
@@ -65,7 +59,7 @@ const DesignSystem = {
         "transition duration-200 ease-in-out",
         "focus:outline-none focus:outline-offset-0",
         {
-          "text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]":
+          "text-white dark:text-gray-900 bg-primary-blue border border-primary-blue hover:bg-blue-600  hover:border-blue-600  focus:shadow-primary":
             !props.link &&
             props.severity === null &&
             !props.text &&
@@ -213,23 +207,21 @@ const DesignSystem = {
   dropdown: {
     root: ({ props }: {props: DropdownProps}) => ({
       className: classNames(
-        "cursor-pointer inline-flex relative select-none",
+        "cursor-pointer inline-flex relative select-none active:shadow-primary focus:shadow-primary",
         "bg-white border border-gray-300 transition-colors duration-200 ease-in-out rounded-md",
         "w-36",
         "hover:border-primary-blue focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] overflow-hidden shrink-0",
         {
-          "opacity-60 select-none pointer-events-none cursor-default ":
+          "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
-        }
+        },
       ),
     }),
     input: ({ props }: {props: DropdownProps}) => ({
       className: classNames(
-        "cursor-pointer block flex flex-auto overflow-hidden overflow-ellipsis whitespace-nowrap relative",
-        "bg-transparent border-0 text-gray-800",
-        "p-3 transition duration-200 bg-transparent rounded appearance-none font-sans text-base",
-        "focus:outline-none focus:shadow-none",
-        { "pr-7": props.showClear }
+        "cursor-pointer block flex flex-auto overflow-hidden overflow-ellipsis whitespace-nowrap relative" ,
+        "bg-transparent border-0 text-gray-800 text-xs",
+        "p-3 transition duration-200 bg-transparent rounded appearance-none text-sm",
       ),
     }),
     trigger: {
@@ -249,7 +241,7 @@ const DesignSystem = {
     },
     item: ({ context }: {context: DropdownContext}) => ({
       className: classNames(
-        "cursor-pointer font-normal overflow-hidden relative whitespace-nowrap",
+        "cursor-pointer font-normal overflow-hidden relative whitespace-nowrap text-sm",
         "m-0 p-3 border-0  transition-shadow duration-200 rounded-none",
         "hover:text-gray-700 hover:bg-gray-200",
       ),

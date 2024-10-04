@@ -6,9 +6,9 @@ const HomeLayout = ({
   children: React.ReactNode;
 }): JSX.Element => {
   return (
-    <div className="">
-      <div className="px-8 shadow-sm py-4 ">
-        <div className="w-full max-w-7xl bg-white mx-auto">
+    <div>
+      <div className="shadow-sm py-4 border">
+        <div className="w-full max-w-7xl  mx-auto bg-white px-8">
           <Header />
         </div>
       </div>

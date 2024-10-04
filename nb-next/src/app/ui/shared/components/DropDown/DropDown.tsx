@@ -15,12 +15,13 @@ const DropDown = <T,>({
   return (
     <div className="card flex justify-center">
       <Dropdown
+        tabIndex={0}
         onChange={(e) => setSelectedOption(e.value)}
         value={selectedOption}
         options={options}
         optionLabel="name"
         pt={{
-          root: { className: `${!roundedRight && "rounded-r-none"} ${!borderRight && "border-r-0"}` },
+          root: { className: `${!roundedRight && "rounded-r-none"} ${!borderRight && "border-r-0"}`,  tabIndex: -1},
         }}
       />
     </div>

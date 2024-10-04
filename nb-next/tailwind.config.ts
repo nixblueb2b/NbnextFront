@@ -13,6 +13,9 @@ const config: Config = {
         foreground: "var(--foreground)",
         'primary-blue': '#007BFF',
       },
+      boxShadow: {
+        'primary': '0 0 0 0.2rem rgba(0,123,255,.2)',
+      }
     },
   },
   plugins: [],
