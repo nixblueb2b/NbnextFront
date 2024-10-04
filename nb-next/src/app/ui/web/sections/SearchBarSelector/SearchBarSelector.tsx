@@ -1,17 +1,32 @@
-import React from "react";
-import { SearchInput, SearchBtn, DropDown } from "@/app/ui/shared/components";
+"use client";
+import React, { useState } from "react";
+import { SearchInput, SearchBtn } from "@/app/ui/shared/components";
+import { Dropdown } from "primereact/dropdown";
 
 function SearchBarSelector() {
-  interface selectData {
+
+  const data: SelectData[] = [{ name: "Producto" }, { name: "Proveedor" }];
+
+
+  interface SelectData {
     name: string;
   }
 
-  const data: selectData[] = [{ name: "Producto" }, { name: "Proveedor" }];
+  const [selectedOption, setSelectedOption] = useState<SelectData>(data[0]);
 
   return (
     <div className="flex">
       <form action="" className="flex">
-        <DropDown options={data} roundedRight={false} borderRight={false} />
+        <Dropdown
+          tabIndex={0}
+          onChange={(e) => setSelectedOption(e.value)}
+          value={selectedOption}
+          options={data}
+          optionLabel="name"
+          pt={{
+            root: { className: `border-r-0 rounded-r-none`, tabIndex: -1 },
+          }}
+        />
         <SearchInput roundedLeft={false} />
         <SearchBtn />
       </form>

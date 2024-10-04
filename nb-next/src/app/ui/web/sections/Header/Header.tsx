@@ -1,12 +1,17 @@
 import React from 'react'
-import SearchBarSelector from '../SearchBarSelector/SearchBarSelector'
+import {SearchBarSelector} from '@/app/ui/web/sections'
+import { Logo, BtnRedirect } from '@/app/ui/shared/components'
 
 const Header = () => {
   return (
     <div className="flex items-center justify-between">
-        <div>logo</div>
-        <SearchBarSelector/>
-        <div>Menu</div>
+        <Logo/>
+        <div className='hidden md:block'>
+          <SearchBarSelector/>
+        </div>
+        <div>
+          <BtnRedirect label="Ingresar" icon="pi pi-sign-in" size={"small"} iconPos={"right"} />
+        </div>
     </div>
   )
 }

@@ -207,7 +207,7 @@ const DesignSystem = {
   dropdown: {
     root: ({ props }: {props: DropdownProps}) => ({
       className: classNames(
-        "cursor-pointer inline-flex relative select-none active:shadow-primary focus:shadow-primary",
+        "cursor-pointer inline-flex flex items-center relative select-none active:shadow-primary focus:shadow-primary",
         "bg-white border border-gray-300 transition-colors duration-200 ease-in-out rounded-md",
         "w-36",
         "hover:border-primary-blue focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] overflow-hidden shrink-0",
