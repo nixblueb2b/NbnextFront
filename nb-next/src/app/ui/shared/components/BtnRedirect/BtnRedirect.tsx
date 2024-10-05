@@ -1,6 +1,5 @@
 import React from "react";
-import { Button } from "primereact/button";
-import { ButtonProps } from "primereact/button";
+import { Button, ButtonProps  } from "primereact/button";
 import Link from "next/link";
 
 

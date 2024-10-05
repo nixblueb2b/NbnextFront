@@ -1,16 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    redirects: async () => {
-      return [
-        {
-          source: '/',
-          destination: '/home',
-          permanent: true,
-        },
-        
-      ];
-    },
-  };
-  
-  export default nextConfig;
-  
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
+    unoptimized: true,
+},
+  redirects: async () => {
+    return [
+      {
+        source: "/",
+        destination: "/home",
+        permanent: true,
+      },
+    ];
+  },
+};
+
+export default nextConfig;
+
+

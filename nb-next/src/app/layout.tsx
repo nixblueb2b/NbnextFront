@@ -8,6 +8,7 @@ import "./globals.css";
 
 const OpenSans = Inter({
   weight: '400',
+  style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
 })
