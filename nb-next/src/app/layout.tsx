@@ -1,18 +1,15 @@
-import Providers from "./providers/Providers";
+import Providers from "./providers/primeReact/Providers";
 import "primeicons/primeicons.css";
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
-import {Inter} from 'next/font/google'
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-
 const OpenSans = Inter({
-  weight: '400',
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-})
-
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,13 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <Providers>
-      <body
-        className={`${OpenSans.className} antialiased`}
-      >
-       {children}
-      </body>
-      </Providers>
+        <Providers>
+          <body className={`${OpenSans.className} antialiased`}>
+            {children}
+          </body>
+        </Providers>
     </html>
   );
 }

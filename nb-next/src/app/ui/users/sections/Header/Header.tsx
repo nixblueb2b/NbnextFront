@@ -1,8 +1,13 @@
+'use client'
 import React from 'react'
-import {SearchBarSelector, NavigationBar} from '@/app/ui/web/sections'
+import {SearchBarSelector, NavigationBar} from '@/app/ui/users/sections'
 import { BtnOpenMenu, Logo } from '@/app/ui/shared/components'
+import { useOpenSidebarStore } from '@/app/stores/user/homeHeaderProvider'
 
 const Header = () => {
+  
+  const {openSidebar} = useOpenSidebarStore((state)=> state)
+
   return (
     <div className="flex items-center justify-between">
         <Logo/>
@@ -13,7 +18,7 @@ const Header = () => {
           <NavigationBar/>
         </div>
        <div className='block lg:hidden'>
-          <BtnOpenMenu icon="pi pi-bars" severity='secondary' />
+          <BtnOpenMenu openMenu={openSidebar} icon="pi pi-bars" severity='secondary' />
        </div>
     </div>
   )
