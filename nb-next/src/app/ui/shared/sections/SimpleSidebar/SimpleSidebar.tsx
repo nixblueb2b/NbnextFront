@@ -1,46 +1,89 @@
-
-'use client'
-import React, { useState, useRef } from 'react';
-import { Sidebar } from 'primereact/sidebar';
-import { Avatar } from 'primereact/avatar';
-import { Ripple } from 'primereact/ripple';
-import { StyleClass } from 'primereact/styleclass';
-import {SidebarHeader} from '@/app/ui/shared/sections'
-import { useOpenSidebarStore } from '@/app/stores/user/homeHeaderProvider'
+"use client";
+import React, { useState, useRef } from "react";
+import { Sidebar } from "primereact/sidebar";
+import { Ripple } from "primereact/ripple";
+import { StyleClass } from "primereact/styleclass";
+import { SidebarHeader } from "@/app/ui/shared/sections";
+import { useOpenSidebarStore } from "@/app/stores/user/homeHeaderProvider";
 
 
 
+// =====> SEPARAR ESTAS INTERFACES
 
-export default function SimpleSidebar() {
 
-    
-    const {isOpen, closeSidebar} = useOpenSidebarStore((store)=>store)
+interface optionsProps {
+    name: string,
+    icon: string
+}
 
-    const [visible, setVisible] = useState(true);
-    const btnRef1 = useRef(null);
-    const btnRef2 = useRef(null);
-    const btnRef3 = useRef(null);
-    const btnRef4 = useRef(null);
+interface htmlElement {
+    htmlComponent: JSX.Element
+}
 
-    console.log(isOpen)
 
-    return (
-        <div className="card flex justify-content-center">
-            <Sidebar
-                className=''
-                position='left'
-                visible={isOpen}
-                onHide={() => closeSidebar(isOpen)}
-                content={() => (
-                    <div className="min-h-screen flex relative lg:static surface-ground">
-                        <div id="app-sidebar-2" className="surface-section h-screen block flex-shrink-0 absolute lg:static left-0 top-0 z-1 border-right-1 surface-border select-none w-full">
-                            <div className="flex flex-col h-full">
-                                <div className="flex align-items-center justify-between px-4 py-5 flex-shrink-0">
-                                    <SidebarHeader />
-                                </div>
+interface SimpleSidebarProps {
+    htmlOptions: htmlElement[],
+    options: optionsProps[]
+}
 
-                                <div className="overflow-y-auto bg-blue-300">
-                                    <ul className="list-none p-3 m-0">
+
+// =====> SEPARAR LAS INTERFAACES DE ARRIBA
+
+
+export default function SimpleSidebar({ options }: { options: SimpleSidebarProps }) {
+
+  console.log("option", options)
+
+  const { isOpen, closeSidebar } = useOpenSidebarStore((store) => store);
+
+  const btnRef4 = useRef(null);
+
+  return (
+    <div className="card flex justify-content-center">
+      <Sidebar
+        className=""
+        position="left"
+        visible={isOpen}
+        onHide={() => closeSidebar(isOpen)}
+        content={() => (
+          <div className="min-h-screen flex relative lg:static surface-ground">
+            <div
+              id="app-sidebar-2"
+              className="surface-section h-screen block flex-shrink-0 absolute lg:static left-0 top-0 z-1 border-right-1 surface-border select-none w-full"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex align-items-center justify-between px-4 py-5 flex-shrink-0">
+                  <SidebarHeader />
+                </div>
+
+                <div className="overflow-y-auto mt-10">
+                  <ul className="list-none p-3 m-0">
+                    {
+                        options.htmlOptions.map((option)=> {
+                          return <li>{option?.htmlComponent}</li>
+                        })
+                    }      
+                    {/* {options.map((element: any) => {
+                      return (
+                        <li className="mb-2">
+                          {element?.mobileSearchBarSelector}
+                        </li>
+                      );
+                    })} */}
+                  </ul>
+                  {/* VER ACA SI ES UN LINK SI LO ES LLAMAR ESE COMPONENTE SI NO LO ES DEJAR ASI (O CREAR UN COMPONENTE QUE NO REDIRIJA) */}
+                  <ul className="list-none p-3 m-0">
+                  {
+                        options.options.map((option)=> {
+                            console.log("option", option)
+                            return <li className="flex mb-2 hover:bg-gray-100 p-2 py-2 items-center">
+                                <span className="mr-4 text-lg"><i className={option.icon}></i></span>
+                                <span className="text-sm">{option.name}</span>
+                            </li>
+                        })  
+                    }   
+                  </ul>
+                  {/* <ul className="list-none p-3 m-0">
                                         <li>
                                             <StyleClass nodeRef={btnRef1} selector="@next" enterClassName="hidden" enterActiveClassName="slidedown" leaveToClassName="hidden" leaveActiveClassName="slideup">
                                                 <div ref={btnRef1} className="p-ripple p-3 flex align-items-center justify-content-between text-600 cursor-pointer">
@@ -142,55 +185,57 @@ export default function SimpleSidebar() {
                                                 </li>
                                             </ul>
                                         </li>
-                                    </ul>
-                                    <ul className="list-none p-3 m-0">
-                                        <li>
-                                            <StyleClass nodeRef={btnRef4} selector="@next" enterClassName="hidden" enterActiveClassName="slidedown" leaveToClassName="hidden" leaveActiveClassName="slideup">
-                                                <div ref={btnRef4} className="p-ripple p-3 flex align-items-center justify-content-between text-600 cursor-pointer">
-                                                    <span className="font-medium">APPLICATION</span>
-                                                    <i className="pi pi-chevron-down"></i>
-                                                    <Ripple />
-                                                </div>
-                                            </StyleClass>
-                                            <ul className="list-none p-0 m-0 overflow-hidden">
-                                                <li>
-                                                    <a className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors w-full">
-                                                        <i className="pi pi-folder mr-2"></i>
-                                                        <span className="font-medium">Projects</span>
-                                                        <Ripple />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors w-full">
-                                                        <i className="pi pi-chart-bar mr-2"></i>
-                                                        <span className="font-medium">Performance</span>
-                                                        <Ripple />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors w-full">
-                                                        <i className="pi pi-cog mr-2"></i>
-                                                        <span className="font-medium">Settings</span>
-                                                        <Ripple />
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="mt-auto bg-red-200 w-full">
-                                    <hr className="mb-3 mx-3 border-top-1 border-none surface-border" />
-                                    <a v-ripple className="m-3 flex align-items-center cursor-pointer p-3 gap-2 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                        <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" />
-                                        <span className="font-bold">Amy Elsner</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            ></Sidebar>
-        </div>
-    )
+                                    </ul> */}
+                  <ul className="list-none p-3 m-0">
+                    <li>
+                      <StyleClass
+                        nodeRef={btnRef4}
+                        selector="@next"
+                        enterClassName="hidden"
+                        enterActiveClassName="slidedown"
+                        leaveToClassName="hidden"
+                        leaveActiveClassName="slideup"
+                      >
+                        {/* <div
+                          ref={btnRef4}
+                          className="p-ripple p-3 flex align-items-center justify-content-between text-600 cursor-pointer"
+                        >
+                          <span className="font-medium">APPLICATION</span>
+                          <i className="pi pi-chevron-down"></i>
+                          <Ripple />
+                        </div> */}
+                      </StyleClass>
+                      {/* <ul className="list-none p-0 m-0 overflow-hidden">
+                        <li>
+                          <a className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors w-full">
+                            <i className="pi pi-folder mr-2"></i>
+                            <span className="font-medium">Projects</span>
+                            <Ripple />
+                          </a>
+                        </li>
+                        <li>
+                          <a className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors w-full">
+                            <i className="pi pi-chart-bar mr-2"></i>
+                            <span className="font-medium">Performance</span>
+                            <Ripple />
+                          </a>
+                        </li>
+                        <li>
+                          <a className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors w-full">
+                            <i className="pi pi-cog mr-2"></i>
+                            <span className="font-medium">Settings</span>
+                            <Ripple />
+                          </a>
+                        </li>
+                      </ul> */}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      ></Sidebar>
+    </div>
+  );
 }
-        
