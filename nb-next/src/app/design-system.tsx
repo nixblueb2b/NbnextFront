@@ -1,8 +1,9 @@
 import { classNames } from "primereact/utils";
 import { InputTextProps, InputTextContext } from "primereact/inputtext";
 import { ButtonContext, ButtonProps } from "primereact/button";
-import { DropdownContext, DropdownProps } from "primereact/dropdown";
+import { DropdownContext, DropdownProps} from "primereact/dropdown";
 import { SidebarProps } from "primereact/sidebar";
+import { BtnRedirect } from "./ui/shared/components";
 
 const TRANSITIONS = {
   overlay: {
@@ -287,11 +288,12 @@ const DesignSystem = {
       ),
     }),
     header: {
-        className: classNames('flex items-center justify-end', 'p-5')
+        className: classNames('flex items-center justify-end shadow-sm mb-10', 'p-5')
     },
+    //No lo estoy  usando
     closeButton: {
         className: classNames(
-            'flex items-center justify-center overflow-hidden relative',
+            'flex items-center justify-center overflow-hidden relative hidden',
             'w-8 h-8 text-gray-500 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0',
             'hover:text-gray-700 hover:border-transparent hover:bg-gray-200',
             'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]', // focus
@@ -299,7 +301,7 @@ const DesignSystem = {
         )
     },
     content: {
-      className: classNames("p-5 pt-0 h-full w-full", "grow overflow-y-auto "),
+      className: classNames("p-3 pt-0 h-full w-full", "grow overflow-y-auto"),
     },
     mask: {
       className: classNames(
@@ -307,35 +309,35 @@ const DesignSystem = {
         "bg-black bg-opacity-40 transition duration-200 z-20 transition-colors"
       ),
     },
-    // transition: ({ props }: { props: SidebarProps }) => {
-    //   return props.position === "top"
-    //     ? {
-    //         enterFromClassName: "translate-x-0 -translate-y-full translate-z-0",
-    //         leaveToClassName: "translate-x-0 -translate-y-full translate-z-0",
-    //       }
-    //     : props.position === "bottom"
-    //     ? {
-    //         enterFromClassName: "translate-x-0 translate-y-full translate-z-0",
-    //         leaveToClassName: "translate-x-0 translate-y-full translate-z-0",
-    //       }
-    //     : props.position === "left"
-    //     ? {
-    //         enterFromClassName: "-translate-x-full translate-y-0 translate-z-0",
-    //         leaveToClassName: "-translate-x-full translate-y-0 translate-z-0",
-    //       }
-    //     : props.position === "right"
-    //     ? {
-    //         enterFromClassName: "translate-x-full translate-y-0 translate-z-0",
-    //         leaveToClassName:
-    //           "opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0",
-    //       }
-    //     : {
-    //         enterFromClassName: "opacity-0",
-    //         enterActiveClassName: "transition-opacity duration-400 ease-in",
-    //         leaveActiveClassName: "transition-opacity duration-400 ease-in",
-    //         leaveToClassName: "opacity-0",
-    //       };
-    // },
+    transition: ({ props }: { props: SidebarProps }) => {
+      return props.position === "top"
+        ? {
+            enterFromClassName: "translate-x-0 -translate-y-full translate-z-0",
+            leaveToClassName: "translate-x-0 -translate-y-full translate-z-0",
+          }
+        : props.position === "bottom"
+        ? {
+            enterFromClassName: "translate-x-0 translate-y-full translate-z-0",
+            leaveToClassName: "translate-x-0 translate-y-full translate-z-0",
+          }
+        : props.position === "left"
+        ? {
+            enterFromClassName: "-translate-x-full translate-y-0 translate-z-0",
+            leaveToClassName: "-translate-x-full translate-y-0 translate-z-0",
+          }
+        : props.position === "right"
+        ? {
+            enterFromClassName: "translate-x-full translate-y-0 translate-z-0",
+            leaveToClassName:
+              "opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0",
+          }
+        : {
+            enterFromClassName: "opacity-0",
+            enterActiveClassName: "transition-opacity duration-400 ease-in",
+            leaveActiveClassName: "transition-opacity duration-400 ease-in",
+            leaveToClassName: "opacity-0",
+          };
+    },
   },
 };
 

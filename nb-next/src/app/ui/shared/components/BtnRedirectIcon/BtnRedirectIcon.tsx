@@ -1,3 +1,5 @@
+//Btn solo icon sin label para derireccionar
+
 import React from 'react'
 import Link from 'next/link'
 import { Button, ButtonProps  } from "primereact/button";

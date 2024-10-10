@@ -2,23 +2,48 @@ import { Header } from "@/app/ui/users/sections";
 import { OpenSidebarProvider } from "@/app/stores/user/homeHeaderProvider";
 import { SimpleSidebar } from "@/app/ui/shared/sections";
 import { MobileSearchBarSelector } from "@/app/ui/users/sections";
+import { BtnRedirect, BtnPlainRedirect } from "@/app/ui/shared/components";
 
 const info = {
   htmlOptions: [
     {
       htmlComponent: <MobileSearchBarSelector />,
-    }
+    },
+    {
+      htmlComponent: (
+        <BtnRedirect
+          className="w-full"
+          label="Ingresar"
+          icon="pi pi-sign-in"
+          size="small"
+          iconPos="right"
+          href="/users/home"
+        />
+      ),
+    },
+    {
+      htmlComponent: (
+        <BtnPlainRedirect
+          className="w-full"
+          label="Registrarme"
+          icon="pi pi-user-plus"
+          iconPos="right"
+          href="/users/home"
+        />
+      ),
+    },
+    {
+      htmlComponent: (
+        <BtnPlainRedirect
+          className="w-full"
+          label="Mi carrito"
+          icon="pi pi-shopping-cart"
+          iconPos="right"
+          href="/users/home"
+        />
+      ),
+    },
   ],
-  options: [
-      {
-        name: "Mi carrito",
-        icon: "pi pi-shopping-cart",
-      },
-      {
-        name: "Registrarme",
-        icon: "pi pi-user-plus",
-      },
-    ],
 };
 
 const HomeLayout = ({

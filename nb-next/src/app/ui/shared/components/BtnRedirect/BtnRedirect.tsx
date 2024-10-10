@@ -1,3 +1,4 @@
+//Este btn redireccioan pero tiene icono y texto para solo ciono usar BtnRedirecIcon
 import React from "react";
 import { Button, ButtonProps  } from "primereact/button";
 import Link from "next/link";
