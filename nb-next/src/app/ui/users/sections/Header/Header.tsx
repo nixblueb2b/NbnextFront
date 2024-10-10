@@ -6,7 +6,7 @@ import { useOpenSidebarStore } from '@/app/stores/user/homeHeaderProvider'
 
 const Header = () => {
   
-  const {openSidebar} = useOpenSidebarStore((state)=> state)
+  const {openSidebar, isOpen} = useOpenSidebarStore((state)=> state)
 
   return (
     <div className="flex items-center justify-between">
