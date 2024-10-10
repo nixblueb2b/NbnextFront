@@ -309,35 +309,37 @@ const DesignSystem = {
         "bg-black bg-opacity-40 transition duration-200 z-20 transition-colors"
       ),
     },
-    transition: ({ props }: { props: SidebarProps }) => {
-      return props.position === "top"
-        ? {
-            enterFromClassName: "translate-x-0 -translate-y-full translate-z-0",
-            leaveToClassName: "translate-x-0 -translate-y-full translate-z-0",
-          }
-        : props.position === "bottom"
-        ? {
-            enterFromClassName: "translate-x-0 translate-y-full translate-z-0",
-            leaveToClassName: "translate-x-0 translate-y-full translate-z-0",
-          }
-        : props.position === "left"
-        ? {
-            enterFromClassName: "-translate-x-full translate-y-0 translate-z-0",
-            leaveToClassName: "-translate-x-full translate-y-0 translate-z-0",
-          }
-        : props.position === "right"
-        ? {
-            enterFromClassName: "translate-x-full translate-y-0 translate-z-0",
-            leaveToClassName:
-              "opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0",
-          }
-        : {
-            enterFromClassName: "opacity-0",
-            enterActiveClassName: "transition-opacity duration-400 ease-in",
-            leaveActiveClassName: "transition-opacity duration-400 ease-in",
-            leaveToClassName: "opacity-0",
-          };
-    },
+    transition: {
+      transition:  ({ props }: { props: SidebarProps }) => {
+        return props.position === "top"
+          ? {
+              enterFromClassName: "translate-x-0 -translate-y-full translate-z-0",
+              leaveToClassName: "translate-x-0 -translate-y-full translate-z-0",
+            }
+          : props.position === "bottom"
+          ? {
+              enterFromClassName: "translate-x-0 translate-y-full translate-z-0",
+              leaveToClassName: "translate-x-0 translate-y-full translate-z-0",
+            }
+          : props.position === "left"
+          ? {
+              enterFromClassName: "-translate-x-full translate-y-0 translate-z-0",
+              leaveToClassName: "-translate-x-full translate-y-0 translate-z-0",
+            }
+          : props.position === "right"
+          ? {
+              enterFromClassName: "translate-x-full translate-y-0 translate-z-0",
+              leaveToClassName:
+                "opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0",
+            }
+          : {
+              enterFromClassName: "opacity-0",
+              enterActiveClassName: "transition-opacity duration-400 ease-in",
+              leaveActiveClassName: "transition-opacity duration-400 ease-in",
+              leaveToClassName: "opacity-0",
+            };
+      },
+    }
   },
 };
 

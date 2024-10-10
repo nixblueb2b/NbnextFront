@@ -23,6 +23,8 @@ export default function SimpleSidebar({
     (store) => store
   );
 
+  //POSIBLEMENTE HAY QUE CREAR UN ELEMENTO UL LI PARA RENDERIZAR LAS LISTAS Y PONERLES UN HOVER, si hago un hover al li 
+  //aqui tidas tienen el hover, hay que crear un componente li para pasarle una prop que diga hover true o false
   return (
     <div className="card flex justify-content-center">
       <Sidebar
@@ -33,8 +35,8 @@ export default function SimpleSidebar({
         <ul className="list-none block ">
           {options.htmlOptions.map((option, index) => {
             return (
-              <li className={`flex py-2 items-center rounded ${index === 0 && "mb-5"}`}>
-                <div>{option.htmlComponent}</div>
+              <li onClick={()=>closeSidebar(false)} className={`flex py-2 items-center rounded ${index === 0 && "mb-5"}`}>
+                <div className="w-full h-full">{option.htmlComponent}</div>
               </li>
             );
           })}
