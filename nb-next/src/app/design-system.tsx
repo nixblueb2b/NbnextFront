@@ -1,9 +1,8 @@
 import { classNames } from "primereact/utils";
 import { InputTextProps, InputTextContext } from "primereact/inputtext";
 import { ButtonContext, ButtonProps } from "primereact/button";
-import { DropdownContext, DropdownProps} from "primereact/dropdown";
+import { DropdownContext, DropdownProps } from "primereact/dropdown";
 import { SidebarProps } from "primereact/sidebar";
-import { BtnRedirect } from "./ui/shared/components";
 
 const TRANSITIONS = {
   overlay: {
@@ -288,17 +287,20 @@ const DesignSystem = {
       ),
     }),
     header: {
-        className: classNames('flex items-center justify-end shadow-sm mb-10 bg-gray-50', 'py-6 px-5')
+      className: classNames(
+        "flex items-center justify-end shadow-sm mb-10 bg-gray-50",
+        "py-6 px-5"
+      ),
     },
     //No lo estoy  usando
     closeButton: {
-        className: classNames(
-            'flex items-center justify-center overflow-hidden relative hidden',
-            'w-8 h-8 text-gray-500 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0',
-            'hover:text-gray-700 hover:border-transparent hover:bg-gray-200',
-            'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]', // focus
-            'dark:hover:text-white/80 dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]'
-        )
+      className: classNames(
+        "flex items-center justify-center overflow-hidden relative hidden",
+        "w-8 h-8 text-gray-500 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0",
+        "hover:text-gray-700 hover:border-transparent hover:bg-gray-200",
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", // focus
+        "dark:hover:text-white/80 dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+      ),
     },
     content: {
       className: classNames("px-5 pt-0 h-full w-full", "grow overflow-y-auto"),
@@ -309,34 +311,61 @@ const DesignSystem = {
         "bg-black bg-opacity-40 transition duration-200 z-20 transition-colors"
       ),
     },
-  //   transition: ({ props }: {props: SidebarProps}) => {
-  //     return props.position === 'top'
-  //         ? {
-  //               enterFromClass: 'translate-x-0 -translate-y-full translate-z-0',
-  //               leaveToClass: 'translate-x-0 -translate-y-full translate-z-0'
-  //           }
-  //         : props.position === 'bottom'
-  //         ? {
-  //               enterFromClass: 'translate-x-0 translate-y-full translate-z-0',
-  //               leaveToClass: 'translate-x-0 translate-y-full translate-z-0'
-  //           }
-  //         : props.position === 'left'
-  //         ? {
-  //               enterFromClass: '-translate-x-full translate-y-0 translate-z-0',
-  //               leaveToClass: '-translate-x-full translate-y-0 translate-z-0'
-  //           }
-  //         : props.position === 'right'
-  //         ? {
-  //               enterFromClass: 'translate-x-full translate-y-0 translate-z-0',
-  //               leaveToClass: 'opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0'
-  //           }
-  //         : {
-  //               enterFromClass: 'opacity-0',
-  //               enterActiveClass: 'transition-opacity duration-400 ease-in',
-  //               leaveActiveClass: 'transition-opacity duration-400 ease-in',
-  //               leaveToClass: 'opacity-0'
-  //           };
-  // }
+    //   transition: ({ props }: {props: SidebarProps}) => {
+    //     return props.position === 'top'
+    //         ? {
+    //               enterFromClass: 'translate-x-0 -translate-y-full translate-z-0',
+    //               leaveToClass: 'translate-x-0 -translate-y-full translate-z-0'
+    //           }
+    //         : props.position === 'bottom'
+    //         ? {
+    //               enterFromClass: 'translate-x-0 translate-y-full translate-z-0',
+    //               leaveToClass: 'translate-x-0 translate-y-full translate-z-0'
+    //           }
+    //         : props.position === 'left'
+    //         ? {
+    //               enterFromClass: '-translate-x-full translate-y-0 translate-z-0',
+    //               leaveToClass: '-translate-x-full translate-y-0 translate-z-0'
+    //           }
+    //         : props.position === 'right'
+    //         ? {
+    //               enterFromClass: 'translate-x-full translate-y-0 translate-z-0',
+    //               leaveToClass: 'opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0'
+    //           }
+    //         : {
+    //               enterFromClass: 'opacity-0',
+    //               enterActiveClass: 'transition-opacity duration-400 ease-in',
+    //               leaveActiveClass: 'transition-opacity duration-400 ease-in',
+    //               leaveToClass: 'opacity-0'
+    //           };
+    // }
+  },
+  //Card
+  card: {
+    root: {
+      className: classNames(
+        "bg-white text-gray-700 shadow-sm rounded-xl border border-slate-200", // Background, text color, box shadow, and border radius.
+        "dark:bg-gray-900 dark:text-white " //dark
+      ),
+    },
+    body: {
+      className: "p-5", // Padding.
+    },
+    title: {
+      className: "text-2xl font-bold mb-2", // Font size, font weight, and margin bottom.
+    } ,
+    subtitle: {
+      className: classNames(
+        "font-normal mb-2 text-gray-600", // Font weight, margin bottom, and text color.
+        "dark:text-white/60 " //dark
+      ),
+    },
+    content: {
+      className: "py-5", // Vertical padding.
+    },
+    footer: {
+      className: "pt-5", // Top padding.
+    }
   },
 };
 

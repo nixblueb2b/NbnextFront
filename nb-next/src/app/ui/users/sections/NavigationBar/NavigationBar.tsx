@@ -18,7 +18,7 @@ function NavigationBar() {
         rounded
         text
         aria-label="Filter"
-        href="/home"
+        href="/users/onboarding"
       />
       <span className="ml-2.5">
         <BtnRedirect
